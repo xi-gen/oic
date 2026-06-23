@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leader Path · 經營者路徑｜OIC · 希世代 XI Gen</title>
+<meta name="description" content="OIC Leader Path——為經營者與領導團隊設計的組織診斷實作路徑。D1 體驗課 × D30 個案式演練回訓，帶著行動計畫回組織。Michelle Jian · 希世代 XI Gen">
+<meta name="author" content="Michelle Jian · 希世代 XI Gen">
+<meta property="og:title" content="Leader Path · 經營者路徑｜OIC · 希世代 XI Gen">
+<meta property="og:description" content="為經營者與領導團隊設計的組織診斷實作路徑。D1 體驗課 × D30 回訓，讓決策層先看見，HR 才有空間行動。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1C1C1A;
+    --ink-2: #4A4A44;
+    --ink-3: #8A8A7E;
+    --cream: #F5F2EA;
+    --cream-2: #EDE9DF;
+    --gold: #B8955A;
+    --gold-light: #D4B078;
+    --rule: #D8D4C8;
+    --green: #2D5A3D;
+    --green-light: #E8F0EA;
+    --navy: #2A3F62;
+    --navy-light: #EEF2F8;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    background: var(--ink);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a.active { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 72px 48px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,149,90,0.15);
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(184,149,90,0.1);
+  }
+  .hero-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .hero-back {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  .hero-back:hover { color: var(--gold-light); }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 8px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.75;
+    max-width: 560px;
+    position: relative; z-index: 1;
+    margin-bottom: 28px;
+  }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; position: relative; z-index: 1; }
+  .hero-badge {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    border: 1px solid rgba(184,149,90,0.4);
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+  }
+  .launch-badge {
+    background: var(--gold);
+    color: var(--navy);
+    border: none;
+    font-weight: 500;
+  }
+
+  /* ── SECTION ── */
+  .section { padding: 56px 48px; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  /* ── RATIONALE ── */
+  .rationale {
+    background: var(--navy-light);
+    border-left: 4px solid var(--navy);
+    padding: 20px 24px;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 40px;
+  }
+  .rationale p { font-size: 14px; color: var(--navy); line-height: 1.75; }
+  .rationale .quote {
+    margin-top: 14px;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-2);
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+  }
+  .rationale .quote cite { font-style: normal; color: var(--gold); font-size: 12px; display: block; margin-top: 4px; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--rule); }
+
+  /* ── PATH FLOW ── */
+  .path-flow { display: flex; flex-direction: column; gap: 0; }
+  .path-step {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+  .path-step:last-child { border-bottom: none; }
+  .path-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .path-icon.d1 { background: var(--navy-light); color: var(--navy); }
+  .path-icon.d30 { background: var(--gold); color: #fff; }
+  .path-icon.fork { background: var(--ink); color: var(--gold); font-size: 13px; }
+  .path-content { flex: 1; }
+  .path-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .path-duration {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .path-desc {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .path-steps-inner { display: flex; flex-direction: column; gap: 6px; margin-bottom: 12px; }
+  .path-step-item {
+    font-size: 12px;
+    color: var(--ink-2);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .path-step-item::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-size: 10px; }
+  .path-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .path-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    background: var(--cream-2);
+    color: var(--ink-2);
+    border: 1px solid var(--rule);
+  }
+  .path-tag.gold { background: rgba(184,149,90,0.12); color: #7A5A00; border-color: rgba(184,149,90,0.3); }
+  .path-tag.navy { background: var(--navy-light); color: var(--navy); border-color: rgba(42,63,98,0.2); }
+  .path-arrow {
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── FORK ── */
+  .fork-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
+  .fork-card {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px;
+    background: #fff;
+  }
+  .fork-card h4 { font-size: 14px; font-weight: 500; margin-bottom: 6px; color: var(--ink); }
+  .fork-card p { font-size: 12px; color: var(--ink-2); line-height: 1.6; }
+
+  /* ── HIGHLIGHTS ── */
+  .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .hl-card {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+  .hl-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+  .hl-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .hl-desc { font-size: 12px; color: var(--ink-2); line-height: 1.6; }
+
+  /* ── WHO ── */
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .who-card { padding: 16px 18px; background: #fff; border: 1px solid var(--rule); border-radius: 4px; }
+  .who-card .icon { font-size: 20px; margin-bottom: 8px; }
+  .who-card h4 { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+  .who-card p { font-size: 12px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ── ULRICH ── */
+  .ulrich-block {
+    background: var(--ink);
+    padding: 32px 40px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  .ulrich-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .ulrich-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .ulrich-cite {
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── FACILITATOR ── */
+  .facilitator {
+    background: var(--ink);
+    padding: 48px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .fac-avatar {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .fac-info { flex: 1; min-width: 200px; }
+  .fac-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: #fff; margin-bottom: 4px; }
+  .fac-title { font-size: 12px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 14px; }
+  .fac-creds { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .fac-cred { font-size: 11px; padding: 3px 10px; border: 1px solid rgba(184,149,90,0.4); color: var(--gold-light); border-radius: 99px; }
+  .fac-bio { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.7; }
+
+  /* ── CTA ── */
+  .cta-section { padding: 48px; background: var(--cream-2); text-align: center; }
+  .cta-section h2 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin-bottom: 12px; }
+  .cta-section p { font-size: 14px; color: var(--ink-2); margin-bottom: 28px; line-height: 1.6; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .btn-primary {
+    padding: 12px 28px;
+    background: var(--ink);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .btn-secondary {
+    padding: 12px 28px;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--ink);
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .contact-info { margin-top: 24px; font-size: 12px; color: var(--ink-3); line-height: 2; }
+  .contact-info a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule); }
+
+  /* ── FOOTER ── */
+  .footer { padding: 24px 48px; border-top: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--ink-3); }
+  .footer-copy { font-size: 11px; color: var(--ink-3); }
+
+  @media (max-width: 600px) {
+    .nav { padding: 14px 24px; }
+    .hero, .section, .facilitator, .cta-section, .footer { padding-left: 24px; padding-right: 24px; }
+    .fork-grid { grid-template-columns: 1fr; }
+    .ulrich-block { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand"><span>XI Gen</span> · OIC</a>
+  <div class="nav-links">
+    <a href="index.html">工作坊總覽</a>
+    <a href="leader.html" class="active">Leader Path</a>
+    <a href="hr-pro.html">HR Pro Path</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <a href="index.html" class="hero-back">← 返回工作坊總覽</a>
+  <span class="hero-tag">產品 A · Leader Path</span>
+  <h1>讓決策層<em>先看見</em>，<br>HR 才有空間行動</h1>
+  <p class="hero-sub">組織診斷實作路徑 · 經營者與領導團隊</p>
+  <p class="hero-desc">當 CXO 親身體驗組織週期診斷，變革的阻力大幅降低。Leader Path 不是告訴經營者該怎麼做，而是讓他們在現場真正「看見」組織的真實位置——然後帶著行動回去。</p>
+  <div class="hero-badges">
+    <span class="hero-badge launch-badge">優先落地 · Launch Ready</span>
+    <span class="hero-badge">受眾：CXO · 創辦人 · 1-down 領導團隊</span>
+    <span class="hero-badge">場域：經營者學院 · 企業定制</span>
+  </div>
+</section>
+
+<!-- RATIONALE -->
+<section class="section">
+  <div class="section-label">為什麼這條路徑優先</div>
+  <div class="rationale">
+    <p>經營者與領導團隊是組織迭代的真正決策者。Dave Ulrich 的四大 Pivot 指出：變革成功的關鍵不在 HR 有多努力，而在領導層是否真正「看見問題」。當 CXO 親身走過組織診斷，HR 介入的阻力大幅降低——Leader Path 讓決策層先移動，再讓 HR 有空間設計系統性解方。</p>
+    <div class="quote">
+      "The 5 stage life cycle and the ideas in Age of HR look like they complement each other."
+      <cite>— Dave Ulrich · The Age of HR · LinkedIn, 2026</cite>
+    </div>
+  </div>
+
+  <!-- WHO -->
+  <div class="section-label">適合對象</div>
+  <div class="who-grid" style="margin-bottom: 0;">
+    <div class="who-card">
+      <div class="icon">👤</div>
+      <h4>CXO · 創辦人</h4>
+      <p>需要一套語言讓組織診斷變得可對話、可行動，而不只是感覺</p>
+    </div>
+    <div class="who-card">
+      <div class="icon">🧭</div>
+      <h4>1-down 領導團隊</h4>
+      <p>與 CXO 一起進場，讓診斷共識在決策層就先建立，避免回組織後各說各話</p>
+    </div>
+    <div class="who-card">
+      <div class="icon">🚀</div>
+      <h4>新創 / 成長期企業</h4>
+      <p>快速擴張中感受組織隱痛，想在文化崩塌前找到正確介入點</p>
+    </div>
+    <div class="who-card">
+      <div class="icon">🔄</div>
+      <h4>轉型中的組織</h4>
+      <p>正在重塑商業模式，需要領導層先對組織現況建立共同語言</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PATH FLOW -->
+<section class="section">
+  <div class="section-label">培訓路徑</div>
+  <h2>健檢 · 演練 · 實作 · 回訓</h2>
+
+  <div class="path-flow">
+
+    <!-- D1 -->
+    <div class="path-step">
+      <div class="path-icon d1">D1</div>
+      <div class="path-content">
+        <div class="path-title">體驗課</div>
+        <span class="path-duration">1.5 小時 · 線下</span>
+        <p class="path-desc">不是講座，是體驗。學員在現場填問卷健檢、依組織週期分組、演練真實情境——帶著一個可立即執行的 30 天行動方案離開。</p>
+        <div class="path-steps-inner">
+          <div class="path-step-item">HR / Talent 趨勢開場——建立為什麼現在要談組織迭代</div>
+          <div class="path-step-item">Why OIC——五個週期核心概念，10 分鐘讓人理解框架</div>
+          <div class="path-step-item">現場問卷健檢——填完即時分析，依週期結果現場分組</div>
+          <div class="path-step-item">各組情境題演練——每組對應週期的真實情境討論與分享</div>
+          <div class="path-step-item">收斂——Why Fractional CHRO Works，依各組痛點自然帶入</div>
+        </div>
+        <div class="path-tags">
+          <span class="path-tag gold">每位學員帶走一個 30 天行動方案</span>
+          <span class="path-tag navy">問卷健檢現場進行</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="path-arrow">↓ 30 天組織實作期</div>
+
+    <!-- D30 -->
+    <div class="path-step">
+      <div class="path-icon d30">D30</div>
+      <div class="path-content">
+        <div class="path-title">回訓課（個案式演練）</div>
+        <span class="path-duration">3 小時 · 線下 · 不錄影</span>
+        <p class="path-desc">學員帶著 30 天真實實作記錄回來報告。Michelle 現場點評，這是整個路徑最高價值的時刻——把「學了」變成「用了、反思了、優化了」。</p>
+        <div class="path-steps-inner">
+          <div class="path-step-item">開場 10 分鐘快速 highlights 各週期定義，讓新加入的負責人快速進入狀況</div>
+          <div class="path-step-item">依週期分組，各組分享 30 天實作：What worked · What didn't</div>
+          <div class="path-step-item">Michelle 點評——給予實作成果回饋與優化建議</div>
+          <div class="path-step-item">選擇新行動方案，設計 D60 check-in 機制</div>
+        </div>
+        <div class="path-tags">
+          <span class="path-tag gold">經營者 + 行動方案負責人同框</span>
+          <span class="path-tag navy">不錄影，保護組織機敏資訊</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="path-arrow">↓ D60 · 選擇深化路徑</div>
+
+    <!-- Fork -->
+    <div class="path-step">
+      <div class="path-icon fork">A/B</div>
+      <div class="path-content">
+        <div class="path-title">依診斷結果選擇深化路徑</div>
+        <span class="path-duration">D60 起 · 長期陪跑</span>
+        <div class="fork-grid">
+          <div class="fork-card">
+            <h4>路徑 A · 客製化企業內訓</h4>
+            <p>按 D1 / D30 的組織診斷結果選定 OIC 模組，針對性設計課程內容。不是套裝課程，而是依你的組織週期客製。專案報價。</p>
+          </div>
+          <div class="fork-card">
+            <h4>路徑 B · Fractional CHRO</h4>
+            <p>不只上課，而是真正陪跑。訂閱制共享人資長服務，半年起，月費制。依組織痛點客製化陪跑，協助設計落地。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- HIGHLIGHTS -->
+<section class="section" style="background: #fff;">
+  <div class="section-label">產品亮點</div>
+  <div class="highlights">
+    <div class="hl-card">
+      <span class="hl-icon">🎯</span>
+      <div class="hl-title">決策層先看見</div>
+      <p class="hl-desc">當 CXO 親身體驗週期診斷，組織介入阻力大幅降低。從決策層改變認知，而非從執行層向上說服——這是大多數 HR 培訓做不到的事。</p>
+    </div>
+    <div class="hl-card">
+      <span class="hl-icon">📍</span>
+      <div class="hl-title">D30 回訓是護城河</div>
+      <p class="hl-desc">個案式演練 + Michelle 的實戰診斷能力，無法被課程平台複製。「帶著行動回來報告」讓學習真正發生在組織裡，而不是停在筆記本上。</p>
+    </div>
+    <div class="hl-card">
+      <span class="hl-icon">🔄</span>
+      <div class="hl-title">自然轉換旗艦服務</div>
+      <p class="hl-desc">D1 → D30 → D60 路徑設計，讓學員自然走到下一步——企業內訓或 Fractional CHRO。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ULRICH -->
+<section class="section">
+  <div class="section-label">國際框架支撐</div>
+  <h2>OIC × The Age of HR</h2>
+  <p style="font-size:14px; color:var(--ink-2); line-height:1.75; margin-bottom:24px; max-width:600px;">Leader Path 的設計整合了 Dave Ulrich 在《The Age of HR》（2026）中提出的四大 Pivot 框架——OIC 五週期與 Ulrich Pivot 的對應，獲現代人力資源之父本人認可互補。這是國際頂尖 HR 框架在台灣本土落地的稀缺實踐。</p>
+  <div class="ulrich-block">
+    <span class="ulrich-label">Dave Ulrich · The Age of HR · 2026</span>
+    <p class="ulrich-quote">"The 5 stage life cycle and the ideas in Age of HR look like they complement each other."</p>
+    <p class="ulrich-cite">— Dave Ulrich · Professor, Ross School of Business · Author, The Age of HR</p>
+    <a href="https://centerforexecutivesuccession.com/publications/age-of-hr/" target="_blank" style="display:inline-block;margin-top:10px;font-size:11px;color:#D4B078;text-decoration:none;border-bottom:1px solid rgba(212,176,120,0.4);padding-bottom:1px;letter-spacing:0.06em;">→ 了解《The Age of HR》</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FACILITATOR -->
+<div class="facilitator">
+  <div class="fac-avatar">MJ</div>
+  <div class="fac-info">
+    <div class="fac-name">Michelle Jian</div>
+    <div class="fac-title">希世代 XI Gen · 創辦人 · 人資實踐家</div>
+    <div class="fac-creds">
+      <span class="fac-cred">CHRO</span>
+      <span class="fac-cred">PHRi</span>
+      <span class="fac-cred">MBA</span>
+      <span class="fac-cred">PMP</span>
+      <span class="fac-cred">Business Coach for Startups</span>
+    </div>
+    <p class="fac-bio">20 年橫跨外商、新創、上市櫃的人資實戰經驗。曾任多家企業 CHRO，深知組織在不同生命週期的真實困境。OIC 框架源自她在多個組織現場淬煉出的診斷與介入方法，不是學術理論，而是可以明天就用的對話工具。</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>準備讓你的領導團隊看清楚組織了嗎？</h2>
+  <p>想了解 Leader Path 如何在你的場域或企業落地？<br>歡迎來信與 Michelle 聊聊你的組織現況與需求。</p>
+  <div class="cta-row">
+    <a href="mailto:michelle@xi-gen.co?subject=Leader Path 諮詢" class="btn-primary">預約免費 30 分鐘諮詢</a>
+    <a href="index.html" class="btn-secondary">返回工作坊總覽</a>
+  </div>
+  <div class="contact-info">
+    <strong>Michelle Jian · 希世代 XI Gen</strong><br>
+    <a href="mailto:michelle@xi-gen.co">michelle@xi-gen.co</a> ·
+    <a href="https://www.linkedin.com/in/michelle-jian-32b8506b" target="_blank">LinkedIn</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-brand">希世代 XI Gen · Organization Iteration Compass</span>
+  <span class="footer-copy">© 2026 Michelle Jian · All rights reserved</span>
+</footer>
+
+</body>
+</html>
