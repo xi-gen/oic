@@ -642,6 +642,12 @@
     .principles { grid-template-columns: 1fr; }
     .field-grid { grid-template-columns: 1fr; }
   }
+
+  /* ── 排版：避免段落最後一行只剩一個字 ── */
+  p, .lede, .a-text, .hero-desc, .section-sub, .product-desc, .stage-desc, .path-desc,
+  .principle-desc, .about-intro, figcaption, .hero-stat-label { text-wrap: pretty; }
+  h1, h2, .section-title { text-wrap: balance; }
+  .field-sub { max-width: 680px; }
 </style>
 </head>
 <body>
@@ -856,7 +862,7 @@
   <div class="section-inner">
     <div class="section-label">實戰現場</div>
     <h2 class="section-title">從講台到組織現場</h2>
-    <p class="section-sub">OIC 的每一組引導對話，都在一次次與創辦人、管理團隊與人資夥伴的真實交流中反覆驗證。</p>
+    <p class="section-sub field-sub">OIC 的每一組引導對話，都在一次次與創辦人、管理團隊與人資夥伴的真實交流中反覆驗證。</p>
     <div class="field-grid">
       <figure class="field-photo">
         <img src="yourator-hr-bar-24.jpg" width="1000" height="750" loading="lazy"
