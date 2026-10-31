@@ -592,10 +592,47 @@
   .footer-copy { font-size: 11px; color: var(--ink-3); }
 
   /* ── RESPONSIVE ── */
+
+  /* ── HERO PHOTO + FIELD PHOTOS (2026/10 新增) ── */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: center;
+  }
+  .hero-grid > .hero-stats,
+  .hero-grid > .hero-cta-row { grid-column: 1 / -1; }
+  .hero-grid > .hero-stats { margin-top: 40px; }
+  .hero-photo { margin: 0; }
+  .hero-photo img {
+    display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 6px; border: 1px solid rgba(201,168,76,0.25);
+    box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+  }
+  .photo-cap {
+    margin-top: 12px; font-size: 12px; line-height: 1.6;
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  .photo-cap::before { content: ''; flex: 0 0 20px; height: 1px; background: var(--gold); transform: translateY(-4px); }
+  .photo-cap b { font-weight: 500; display: block; }
+  .hero-photo .photo-cap { color: rgba(255,255,255,0.5); }
+  .hero-photo .photo-cap b { color: rgba(255,255,255,0.88); }
+
+  .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .field-photo { margin: 0; }
+  .field-photo img {
+    display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 6px; border: 1px solid var(--rule);
+  }
+  .field-photo .photo-cap { color: var(--ink-3); }
+  .field-photo .photo-cap b { color: var(--ink); }
+
   @media (max-width: 900px) {
     .stages-grid { grid-template-columns: repeat(3, 1fr); }
     .cta-form-inner { grid-template-columns: 1fr; gap: 36px; }
     .paths-grid { grid-template-columns: 1fr; }
+    .hero-grid { grid-template-columns: 1fr; row-gap: 32px; }
+    .hero-grid > .hero-stats { margin-top: 0; }
   }
   @media (max-width: 600px) {
     .nav { padding: 14px 24px; }
@@ -603,6 +640,7 @@
     .stages-grid { grid-template-columns: repeat(2, 1fr); }
     .hero-stat { padding-right: 20px; margin-right: 20px; }
     .principles { grid-template-columns: 1fr; }
+    .field-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -621,11 +659,20 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-inner">
+  <div class="hero-inner hero-grid">
+    <div class="hero-text">
     <div class="hero-eyebrow">希世代 XI Gen · 旗艦產品</div>
     <h1>Organization<br><em>Iteration Compass</em></h1>
     <p class="hero-sub">組織迭代指南 · OIC</p>
     <p class="hero-desc">你的組織在哪個生命週期？五個週期 × 15 組引導對話——不是告訴你答案，而是讓你在現場真正「看見」組織的真實位置，帶著行動前進。</p>
+    </div><!-- end hero-text -->
+
+    <figure class="hero-photo">
+      <img src="oic-talk-2026-07-02.jpg" width="1200" height="900"
+           alt="Michelle Jian 主講「AI 時代下的組織變革方程式」">
+      <figcaption class="photo-cap"><span><b>AI 時代下的組織變革方程式</b>CXO 的大派遣時代 · 2026/7/2</span></figcaption>
+    </figure>
+
     <div class="hero-stats">
       <div class="hero-stat">
         <div class="hero-stat-num">79<span style="font-size:22px">%</span></div>
@@ -800,6 +847,27 @@
         </div>
         <a href="hr-pro.html" class="path-cta navy-cta">了解 HR Pro Path →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD PHOTOS -->
+<section class="section" style="background: #fff;">
+  <div class="section-inner">
+    <div class="section-label">實戰現場</div>
+    <h2 class="section-title">從講台到組織現場</h2>
+    <p class="section-sub">OIC 的每一組引導對話，都在一次次與創辦人、管理團隊與人資夥伴的真實交流中反覆驗證。</p>
+    <div class="field-grid">
+      <figure class="field-photo">
+        <img src="yourator-hr-bar-24.jpg" width="1000" height="750" loading="lazy"
+             alt="Michelle Jian 於 Yourator 人資小酒館 #24 主講">
+        <figcaption class="photo-cap"><span><b>Yourator 人資小酒館 #24</b>AI 時代下的人資長解方 · 2026/8/28</span></figcaption>
+      </figure>
+      <figure class="field-photo">
+        <img src="yourator-hr-bar-23.jpg" width="1000" height="750" loading="lazy"
+             alt="Michelle Jian 於 Yourator 人資小酒館 #23 分享，投影片為與 Dave Ulrich 交流的內容">
+        <figcaption class="photo-cap"><span><b>Yourator 人資小酒館 #23</b>人資旅程 20 年的下一步 · 2025/9/11</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
