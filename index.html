@@ -648,6 +648,14 @@
   .principle-desc, .about-intro, figcaption, .hero-stat-label { text-wrap: pretty; }
   h1, h2, .section-title { text-wrap: balance; }
   .field-sub { max-width: 680px; }
+
+  /* mobile nav: one row (2026/11) */
+  @media (max-width: 600px) {
+    .nav-links { width: 100%; gap: 16px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { white-space: nowrap; flex: 0 0 auto; }
+    .nav-links .nav-home { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -656,7 +664,7 @@
 <nav class="nav">
   <a href="https://xi-gen.github.io" class="nav-brand"><span>XI Gen</span> · OIC</a>
   <div class="nav-links">
-    <a href="https://xi-gen.github.io">← 回首頁</a>
+    <a class="nav-home" href="https://xi-gen.github.io">← 回首頁</a>
     <a href="index.html" class="active">工作坊總覽</a>
     <a href="leader.html">Leader Path</a>
     <a href="hr-pro.html">HR Pro Path</a>
