@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OIC · Organization Iteration Compass | XI Gen</title>
+<meta name="description" content="OIC, the Organization Iteration Compass: 5 life-cycle stages × 15 facilitated dialogues, integrated with Dave Ulrich's four HR pivots. Helps organizations see where they truly stand and move forward with clear actions. XI Gen · Michelle Jian">
+<meta name="author" content="Michelle Jian · XI Gen">
+<meta property="og:title" content="OIC · Organization Iteration Compass | XI Gen">
+<meta property="og:description" content="Understand first, then change. A diagnostic and action framework for the five stages of the organizational life cycle.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<link rel="alternate" hreflang="zh-TW" href="https://xi-gen.github.io/oic/">
+<link rel="alternate" hreflang="en" href="https://xi-gen.github.io/oic/en/">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1C1C1A;
+    --ink-2: #4A4A44;
+    --ink-3: #8A8A7E;
+    --cream: #F5F2EA;
+    --cream-2: #EDE9DF;
+    --gold: #C9A84C;
+    --gold-dim: #B8955A;
+    --gold-light: #D4B078;
+    --gold-pale: #FBF5E6;
+    --rule: #D8D4C8;
+    --navy: #2A3F62;
+    --navy-light: #EEF2F8;
+    --navy-mid: #3A5280;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    background: var(--ink);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a.active { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 80px 48px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -60px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.12);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 20%;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.08);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px; height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+  /* Stats */
+  .hero-stats {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 32px;
+    margin-bottom: 40px;
+  }
+  .hero-stat {
+    padding: 0 40px 0 0;
+    margin-right: 40px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.42);
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+  }
+  /* Hero CTA */
+  .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-gold {
+    padding: 14px 32px;
+    background: var(--gold);
+    color: var(--navy);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-ghost {
+    padding: 14px 32px;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── SECTION ── */
+  .section { padding: 64px 48px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 14px;
+    color: var(--ink-3);
+    line-height: 1.75;
+    max-width: 560px;
+    margin-bottom: 40px;
+  }
+  .divider { border: none; border-top: 1px solid var(--rule); }
+
+  /* ── META PRINCIPLES ── */
+  .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .principle-card {
+    background: #fff;
+    padding: 32px 28px;
+  }
+  .principle-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 400;
+    color: rgba(201,168,76,0.25);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .principle-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .principle-title em { font-style: italic; color: var(--gold-dim); }
+  .principle-desc {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.75;
+  }
+
+  /* ── STAGES ── */
+  .stages-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .stage-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 20px 16px;
+    border-top: 3px solid var(--rule);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .stage-card:hover {
+    border-top-color: var(--gold);
+    box-shadow: 0 4px 16px rgba(42,63,98,0.07);
+  }
+  .stage-card.s1 { border-top-color: #2D8A6A; }
+  .stage-card.s2 { border-top-color: #2A5FA5; }
+  .stage-card.s3 { border-top-color: #5A3FA5; }
+  .stage-card.s4 { border-top-color: #C47A20; }
+  .stage-card.s5 { border-top-color: #B84040; }
+  .stage-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+  .stage-num {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .stage-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .stage-en {
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .stage-role {
+    font-size: 11px;
+    color: var(--gold-dim);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .stage-desc {
+    font-size: 11px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  /* ── CTA FORM BLOCK ── */
+  .cta-form-section {
+    background: var(--navy);
+    padding: 72px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-form-section::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.12);
+    pointer-events: none;
+  }
+  .cta-form-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-form-left {}
+  .cta-form-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cta-form-eyebrow::before {
+    content: '';
+    width: 24px; height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+  .cta-form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .cta-form-title em { font-style: italic; color: var(--gold-light); }
+  .cta-form-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+  .cta-form-features { display: flex; flex-direction: column; gap: 10px; }
+  .cta-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+  .cta-feature::before {
+    content: '✓';
+    color: var(--gold);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  /* Right card */
+  .cta-form-right {
+    background: var(--gold-pale);
+    border-radius: 10px;
+    padding: 40px 36px;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+  .cta-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+  .cta-card-sub {
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    margin-bottom: 24px;
+  }
+  .cta-steps { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .cta-step {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .cta-step-num {
+    width: 24px; height: 24px;
+    background: var(--navy);
+    color: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .cta-step-text {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.55;
+    padding-top: 3px;
+  }
+  .btn-form {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: center;
+    border-radius: 4px;
+    transition: background 0.2s;
+    margin-bottom: 12px;
+  }
+  .btn-form:hover { background: var(--navy-mid); }
+  .cta-card-note {
+    font-size: 11px;
+    color: var(--ink-3);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* ── PATHS ── */
+  .paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .path-card {
+    border-radius: 8px;
+    padding: 32px 28px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .path-card.navy-card {
+    background: var(--navy);
+    border-color: transparent;
+  }
+  .path-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .path-label.gold { color: var(--gold); }
+  .path-label.blue { color: #6B9CB8; }
+  .path-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .path-card.navy-card .path-title { color: #fff; }
+  .path-sub {
+    font-size: 12px;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+  .path-card.navy-card .path-sub { color: rgba(255,255,255,0.45); }
+  .path-desc {
+    font-size: 13px;
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: 20px;
+  }
+  .path-card.navy-card .path-desc { color: rgba(255,255,255,0.65); }
+  .path-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+  .path-tag {
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 99px;
+  }
+  .path-tag.gold-tag {
+    background: rgba(201,168,76,0.15);
+    color: #8A6A1F;
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+  .path-tag.blue-tag {
+    background: rgba(74,127,165,0.1);
+    color: #2D6A9F;
+    border: 1px solid rgba(74,127,165,0.25);
+  }
+  .path-tag.white-tag {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.65);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .path-cta {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    padding-bottom: 1px;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+  }
+  .path-cta:hover { opacity: 0.7; }
+  .path-cta.gold-cta { color: var(--gold); border-color: rgba(201,168,76,0.4); }
+  .path-cta.navy-cta { color: var(--navy); border-color: rgba(42,63,98,0.3); }
+
+  /* ── ULRICH STRIP ── */
+  .ulrich-strip {
+    background: var(--ink);
+    padding: 48px;
+  }
+  .ulrich-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .ulrich-left { flex: 0 0 120px; }
+  .ulrich-stamp {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    line-height: 2;
+  }
+  .ulrich-right { flex: 1; min-width: 240px; }
+  .ulrich-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 2.2vw, 22px);
+    font-style: italic;
+    color: #fff;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .ulrich-attr {
+    font-size: 11px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.06em;
+  }
+  .ulrich-attr a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    padding: 24px 48px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--ink-3); }
+  .footer-copy { font-size: 11px; color: var(--ink-3); }
+
+  /* ── RESPONSIVE ── */
+
+  /* ── HERO PHOTO + FIELD PHOTOS (2026/10 新增) ── */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    column-gap: 56px;
+    align-items: center;
+  }
+  .hero-grid > .hero-stats,
+  .hero-grid > .hero-cta-row { grid-column: 1 / -1; }
+  .hero-grid > .hero-stats { margin-top: 40px; }
+  .hero-photo { margin: 0; }
+  .hero-photo img {
+    display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 6px; border: 1px solid rgba(201,168,76,0.25);
+    box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+  }
+  .photo-cap {
+    margin-top: 12px; font-size: 12px; line-height: 1.6;
+    display: flex; gap: 10px; align-items: baseline;
+  }
+  .photo-cap::before { content: ''; flex: 0 0 20px; height: 1px; background: var(--gold); transform: translateY(-4px); }
+  .photo-cap b { font-weight: 500; display: block; }
+  .hero-photo .photo-cap { color: rgba(255,255,255,0.5); }
+  .hero-photo .photo-cap b { color: rgba(255,255,255,0.88); }
+
+  .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .field-photo { margin: 0; }
+  .field-photo img {
+    display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 6px; border: 1px solid var(--rule);
+  }
+  .field-photo .photo-cap { color: var(--ink-3); }
+  .field-photo .photo-cap b { color: var(--ink); }
+
+  @media (max-width: 900px) {
+    .stages-grid { grid-template-columns: repeat(3, 1fr); }
+    .cta-form-inner { grid-template-columns: 1fr; gap: 36px; }
+    .paths-grid { grid-template-columns: 1fr; }
+    .hero-grid { grid-template-columns: 1fr; row-gap: 32px; }
+    .hero-grid > .hero-stats { margin-top: 0; }
+  }
+  @media (max-width: 600px) {
+    .nav { padding: 14px 24px; }
+    .hero, .section, .cta-form-section, .ulrich-strip, .footer { padding-left: 24px; padding-right: 24px; }
+    .stages-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-stat { padding-right: 20px; margin-right: 20px; }
+    .principles { grid-template-columns: 1fr; }
+    .field-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── 排版：避免段落最後一行只剩一個字 ── */
+  p, .lede, .a-text, .hero-desc, .section-sub, .product-desc, .stage-desc, .path-desc,
+  .principle-desc, .about-intro, figcaption, .hero-stat-label { text-wrap: pretty; }
+  h1, h2, .section-title { text-wrap: balance; }
+  .field-sub { max-width: 680px; }
+
+  /* mobile nav: one row (2026/11) */
+  @media (max-width: 600px) {
+    .nav-links { width: 100%; gap: 16px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { white-space: nowrap; flex: 0 0 auto; }
+    .nav-links .nav-home { display: none; }
+  }
+
+  /* ── 中 / EN switch + (Mandarin) note (2026/11) ── */
+  .nav-links .lang { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); }
+  .nav-links .lang a.on { color: var(--gold); }
+  .nav-links .lang .sep { margin: 0 6px; }
+  .hero-grid > .hero-src { grid-column: 1 / -1; }
+  .hero-src { margin: -24px 0 32px; font-size: 11px; color: rgba(255,255,255,0.38); letter-spacing: 0.04em; }
+  .lang-note { font-size: .85em; opacity: .7; font-weight: 300; text-transform: none; letter-spacing: 0.02em; }
+  @media (max-width: 600px) {
+    .nav-links { gap: 12px; }
+    .nav-links a, .nav-links .lang { letter-spacing: 0.05em; }
+    .nav-links .lang { white-space: nowrap; flex: 0 0 auto; }
+    .nav-links .lang-note { display: none; }
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 20px; }
+    .hero-stat { padding: 0; margin: 0; border-right: none; }
+    .hero-stat-label br { display: none; }
+  }
+  .nw { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://xi-gen.github.io/en/" class="nav-brand"><span>XI Gen</span> · OIC</a>
+  <div class="nav-links">
+    <a class="nav-home" href="https://xi-gen.github.io/en/">← Home</a>
+    <a href="./" class="active" aria-current="page">Overview</a>
+    <a href="../leader.html">Leader Path <span class="lang-note">(Mandarin)</span></a>
+    <a href="../hr-pro.html">HR Pro Path <span class="lang-note">(Mandarin)</span></a>
+    <span class="lang"><a href="../" hreflang="zh-TW" lang="zh-TW">中</a><span class="sep">/</span><a class="on" href="./" aria-current="true">EN</a></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner hero-grid">
+    <div class="hero-text">
+    <div class="hero-eyebrow">XI Gen · Flagship Offering</div>
+    <h1>Organization<br><em>Iteration Compass</em></h1>
+    <p class="hero-sub">A Guide to Organizational Iteration · OIC</p>
+    <p class="hero-desc">Where is your organization in its life cycle? Five stages × 15 facilitated dialogues. OIC doesn't hand you the answer. It helps you see, in the room, where your organization truly stands, and leave with actions to move forward.</p>
+    </div><!-- end hero-text -->
+
+    <figure class="hero-photo">
+      <img src="../oic-talk-2026-07-02.jpg" width="1200" height="900"
+           alt="Michelle Jian speaking on The Equation for Organizational Change in the AI Era">
+      <figcaption class="photo-cap"><span><b>The Equation for Organizational Change in the AI Era</b>The Era of Fractional CXO · 2026/7/2</span></figcaption>
+    </figure>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">79<span style="font-size:22px">%</span></div>
+        <div class="hero-stat-label">of organizations lack the agility <br>business transformation requires</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3<span style="font-size:22px">x</span></div>
+        <div class="hero-stat-label">faster to regain business resilience <br>with built-in iteration</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">5</div>
+        <div class="hero-stat-label">life-cycle stages <br>of HRBP action</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">15</div>
+        <div class="hero-stat-label">facilitated dialogues <br>across all five stages</div>
+      </div>
+    </div>
+    <p class="hero-src">Sources: Mercer (2025); AIHR (2025)</p>
+    <div class="hero-cta-row">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_iWPwcJG2CcIBMKLYa3Ju4LbymJYAIMB9uRnSBmSU7KqaPg/viewform" target="_blank" rel="noopener" class="btn-gold">Take the free OIC Check <span class="nw"><span class="lang-note">(Mandarin)</span> →</span></a>
+      <a href="#paths" class="btn-ghost">Explore the two learning paths</a>
+    </div>
+  </div>
+</section>
+
+<!-- META PRINCIPLES -->
+<section class="section" style="background: var(--cream);">
+  <div class="section-inner">
+    <div class="section-label">OIC's core principles</div>
+    <h2 class="section-title">Three things that hold true at every stage</h2>
+    <p class="section-sub" style="margin-bottom:32px;">Drawn from the OIC handbook, these principles guide every intervention.</p>
+    <div class="principles">
+      <div class="principle-card">
+        <div class="principle-num">01</div>
+        <div class="principle-title">Understand first, <em>then change</em></div>
+        <p class="principle-desc">Come in to understand, not to fix. Diagnose the real pain points, build consensus with data, then let trust carry the change. HRBPs who rush to prescribe usually solve the wrong problem.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">02</div>
+        <div class="principle-title">Meaning is a <em>leading indicator of performance</em></div>
+        <p class="principle-desc">Drawing on Dave Ulrich's work: when employees understand why something must change, resistance drops sharply. Iteration succeeds or fails not on process design, but on whether its purpose reaches everyone it affects.</p>
+      </div>
+      <div class="principle-card">
+        <div class="principle-num">03</div>
+        <div class="principle-title">Small pilots, <em>fast iteration</em></div>
+        <p class="principle-desc">A 60–90 day pilot plus a replicable rollout playbook turns change into organizational memory. Build it into process, policy and systems so it no longer relies on one person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- FIVE STAGES -->
+<section class="section" style="background: #fff;">
+  <div class="section-inner">
+    <div class="section-label">The five organizational life-cycle stages</div>
+    <h2 class="section-title">Where is your organization now?</h2>
+    <p class="section-sub">You can't intervene with precision until you know your stage. Each stage has its own HR priorities and areas of action.</p>
+    <div class="stages-grid">
+      <div class="stage-card s1">
+        <span class="stage-icon">🌱</span>
+        <div class="stage-num">Stage 1</div>
+        <div class="stage-name">Startup</div>
+        <div class="stage-role">Culture Architect</div>
+        <p class="stage-desc">Set the cultural DNA and identify core talent. Culture first, then systems.</p>
+      </div>
+      <div class="stage-card s2">
+        <span class="stage-icon">🚀</span>
+        <div class="stage-num">Stage 2</div>
+        <div class="stage-name">Growth</div>
+        <div class="stage-role">System Designer</div>
+        <p class="stage-desc">Talent density and leadership readiness are the most critical HR investments.</p>
+      </div>
+      <div class="stage-card s3">
+        <span class="stage-icon">🏛</span>
+        <div class="stage-num">Stage 3</div>
+        <div class="stage-name">Maturity</div>
+        <div class="stage-role">Change Catalyst</div>
+        <p class="stage-desc">Peak scale, but rising risk of bureaucracy. Hold the tension between stability and innovation.</p>
+      </div>
+      <div class="stage-card s4">
+        <span class="stage-icon">⚠️</span>
+        <div class="stage-num">Stage 4</div>
+        <div class="stage-name">Decline</div>
+        <div class="stage-role">Crisis Diagnostician</div>
+        <p class="stage-desc">Find the root causes fast, retain key talent, and build executive consensus with data.</p>
+      </div>
+      <div class="stage-card s5">
+        <span class="stage-icon">🔄</span>
+        <div class="stage-num">Stage 5</div>
+        <div class="stage-name">Renewal</div>
+        <div class="stage-role">Transformation Navigator</div>
+        <p class="stage-desc">Rebuild trust, redesign systems, reboot the culture. Trust first, then systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FORM BLOCK -->
+<div class="cta-form-section">
+  <div class="cta-form-inner">
+    <div class="cta-form-left">
+      <div class="cta-form-eyebrow">Free OIC Check</div>
+      <h2 class="cta-form-title">Know <em>which stage</em> you're in<br>before choosing a solution</h2>
+      <p class="cta-form-desc">Ten single-choice questions, five minutes. Your personalized life-cycle diagnostic report is generated instantly and sent to your inbox. It's the first step into the OIC learning paths, and the fastest way to see where your organization stands today.</p>
+      <div class="cta-form-features">
+        <div class="cta-feature">10 single-choice questions, done in 5 minutes</div>
+        <div class="cta-feature">Instant analysis, with your personalized report sent by email (in Mandarin)</div>
+        <div class="cta-feature">HR action recommendations for your stage</div>
+        <div class="cta-feature">Completely free, no sign-in required</div>
+      </div>
+    </div>
+    <div class="cta-form-right">
+      <div class="cta-card-title">🧭 OIC Check</div>
+      <div class="cta-card-sub">Organization Iteration Compass · Free diagnostic</div>
+      <div class="cta-steps">
+        <div class="cta-step">
+          <div class="cta-step-num">1</div>
+          <div class="cta-step-text">Answer 10 single-choice questions about your organization today</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">2</div>
+          <div class="cta-step-text">Automatic scoring identifies your organization's stage</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">3</div>
+          <div class="cta-step-text">A customized diagnostic report and action recommendations, sent by email</div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_iWPwcJG2CcIBMKLYa3Ju4LbymJYAIMB9uRnSBmSU7KqaPg/viewform" target="_blank" rel="noopener" class="btn-form">Start the OIC Check <span class="nw"><span class="lang-note">(Mandarin)</span> →</span></a>
+      <div class="cta-card-note">Free · 5 minutes · Report sent instantly<br>Already considering Leader Path or HR Pro Path?<br><a href="mailto:michelle@xi-gen.co?subject=OIC%20inquiry" style="color:var(--navy);text-decoration:none;border-bottom:1px solid var(--rule);">Email Michelle</a> to talk it through.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TWO PATHS -->
+<section class="section" id="paths" style="background: var(--cream-2);">
+  <div class="section-inner">
+    <div class="section-label">Two learning paths</div>
+    <h2 class="section-title">Are you a decision-maker or an HR practitioner?</h2>
+    <p class="section-sub">OIC offers two separate paths designed for different roles. Both lead to the same goal: getting the organization truly moving.</p>
+    <div class="paths-grid">
+      <!-- Leader Path -->
+      <div class="path-card navy-card">
+        <div class="path-label gold">Offering A · Start here</div>
+        <div class="path-title">Leader Path</div>
+        <div class="path-sub">Hands-on organizational diagnosis · For founders and leadership teams</div>
+        <p class="path-desc">When CXOs experience a life-cycle diagnosis firsthand, resistance to change drops sharply. A D1 experience session, a D30 case-based follow-up and a D60 deep-dive: leadership sees it first, so HR has room to act.</p>
+        <div class="path-tags">
+          <span class="path-tag white-tag">CXO · Founder</span>
+          <span class="path-tag white-tag">N-1 leadership team</span>
+          <span class="path-tag white-tag">D1 · D30 · D60</span>
+        </div>
+        <a href="../leader.html" class="path-cta gold-cta">Explore Leader Path <span class="nw"><span class="lang-note">(Mandarin)</span> →</span></a>
+      </div>
+      <!-- HR Pro Path -->
+      <div class="path-card">
+        <div class="path-label blue">Offering B</div>
+        <div class="path-title">HR Pro Path</div>
+        <div class="path-sub">From framework to practice · For HR Heads and HRBPs</div>
+        <p class="path-desc">From knowing to doing. A self-paced online course, half-day or full-day workshops, then Self-Check for in-house replication. HR gains the ability to diagnose, the language to win over leadership, and a reason to bring CXOs to Leader Path.</p>
+        <div class="path-tags">
+          <span class="path-tag blue-tag">HR Head · HRBP</span>
+          <span class="path-tag blue-tag">PHRi® learners</span>
+          <span class="path-tag blue-tag">Online · Half-day · Full-day</span>
+        </div>
+        <a href="../hr-pro.html" class="path-cta navy-cta">Explore HR Pro Path <span class="nw"><span class="lang-note">(Mandarin)</span> →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELD PHOTOS -->
+<section class="section" style="background: #fff;">
+  <div class="section-inner">
+    <div class="section-label">In the field</div>
+    <h2 class="section-title">From the podium to the workplace</h2>
+    <p class="section-sub field-sub">Every OIC facilitated dialogue has been tested again and again in real conversations with founders, leadership teams and HR partners.</p>
+    <div class="field-grid">
+      <figure class="field-photo">
+        <img src="../yourator-hr-bar-24.jpg" width="1000" height="750" loading="lazy"
+             alt="Michelle Jian speaking at Yourator HR Bar #24">
+        <figcaption class="photo-cap"><span><b>Yourator HR Bar #24</b>CHRO Solutions for the AI Era · 2026/8/28</span></figcaption>
+      </figure>
+      <figure class="field-photo">
+        <img src="../yourator-hr-bar-23.jpg" width="1000" height="750" loading="lazy"
+             alt="Michelle Jian speaking at Yourator HR Bar #23, with slides on her exchange with Dave Ulrich">
+        <figcaption class="photo-cap"><span><b>Yourator HR Bar #23</b>The Next Step After 20 Years in HR · 2025/9/11</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ULRICH STRIP -->
+<div class="ulrich-strip">
+  <div class="ulrich-strip-inner">
+    <div class="ulrich-left">
+      <div class="ulrich-stamp">
+        Dave Ulrich<br>
+        Father of<br>Modern HR<br>
+        · 2026 ·
+      </div>
+    </div>
+    <div class="ulrich-right">
+      <p class="ulrich-quote">"The 5 stage life cycle and the ideas in Age of HR look like they complement each other."</p>
+      <p class="ulrich-attr">
+        — Dave Ulrich · Professor, Ross School of Business · Author,
+        <a href="https://centerforexecutivesuccession.com/publications/age-of-hr/" target="_blank" rel="noopener">The Age of HR</a>
+        · LinkedIn DM, 2026
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-brand">XI Gen · Organization Iteration Compass</span>
+  <span class="footer-copy">© 2026 Michelle Jian · All rights reserved</span>
+</footer>
+
+</body>
+</html>

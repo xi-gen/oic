@@ -10,6 +10,8 @@
 <meta property="og:description" content="先理解，再改變。五個組織生命週期的診斷與行動框架。">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
+<link rel="alternate" hreflang="zh-TW" href="https://xi-gen.github.io/oic/">
+<link rel="alternate" hreflang="en" href="https://xi-gen.github.io/oic/en/">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -656,6 +658,16 @@
     .nav-links a { white-space: nowrap; flex: 0 0 auto; }
     .nav-links .nav-home { display: none; }
   }
+
+  /* ── 中 / EN 切換（2026/11）── */
+  .nav-links .lang { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); }
+  .nav-links .lang a.on { color: var(--gold); }
+  .nav-links .lang .sep { margin: 0 6px; }
+  @media (max-width: 600px) {
+    .nav-links { gap: 12px; }
+    .nav-links a, .nav-links .lang { letter-spacing: 0.05em; }
+    .nav-links .lang { white-space: nowrap; flex: 0 0 auto; }
+  }
 </style>
 </head>
 <body>
@@ -668,6 +680,7 @@
     <a href="index.html" class="active">工作坊總覽</a>
     <a href="leader.html">Leader Path</a>
     <a href="hr-pro.html">HR Pro Path</a>
+    <span class="lang"><a class="on" href="./" aria-current="true">中</a><span class="sep">/</span><a href="en/" hreflang="en" lang="en">EN</a></span>
   </div>
 </nav>
 
@@ -843,7 +856,7 @@
         <p class="path-desc">當 CXO 親身體驗組織週期診斷，變革阻力大幅降低。D1 體驗課 → D30 個案式回訓 → D60 深化路徑，讓決策層先看見，HR 才有空間行動。</p>
         <div class="path-tags">
           <span class="path-tag white-tag">CXO · 創辦人</span>
-          <span class="path-tag white-tag">1-down 領導團隊</span>
+          <span class="path-tag white-tag">N-1 領導團隊</span>
           <span class="path-tag white-tag">D1 · D30 · D60</span>
         </div>
         <a href="leader.html" class="path-cta gold-cta">了解 Leader Path →</a>
